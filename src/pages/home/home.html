@@ -21,7 +21,7 @@
   </ion-select>
 </ion-item>
   <ion-list>
-    <ion-item *ngFor="let user of misUsuarios">
+    <ion-item-sliding *ngFor="let user of misUsuarios">
       <button ion-item (click)="openItem(user)">
         <ion-avatar item-start>
           <img [src]="user.picture.medium">
@@ -29,6 +29,12 @@
         <h2>{{user.name.first | uppercase}}</h2>
         <p>{{user.email}}</p>
       </button>
-    </ion-item>
+
+      <ion-item-options>
+        <button ion-button color="danger">
+          {{ 'Borrar' }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
