@@ -14,7 +14,7 @@ export class UserServiceProvider {
     console.log('Hello UserServiceProvider Provider');
   }
 
-  getUsuarios(){
-    return this.http.get('https://randomuser.me/api/?results=25');
+  getUsuarios(cantidad: string){
+    return this.http.get('https://randomuser.me/api/?results='+cantidad);
   }
 }

@@ -10,7 +10,21 @@ export class HomePage {
   misUsuarios: any[] = [];
 
   constructor(public navCtrl: NavController, public myApi: UserServiceProvider) {
-    this.myApi.getUsuarios().subscribe(
+  }
+
+  prueba(variable: any){
+    console.log('Seleccionó ' + variable);
+    this.cargar(variable);
+  }
+
+  openItem(item: UserServiceProvider) {
+    this.navCtrl.push('DetallePage', {
+      item: item
+    });
+  }
+
+  cargar(cantidad: string){
+    this.myApi.getUsuarios(cantidad).subscribe(
       (data) => {
         this.misUsuarios = data['results'];
       },
@@ -18,12 +32,6 @@ export class HomePage {
         console.error(error);
       }
     );
-  }
-
-  openItem(item: UserServiceProvider) {
-    this.navCtrl.push('DetallePage', {
-      item: item
-    });
   }
 
   ionViewDidLoad(){
