@@ -1,0 +1,7 @@
+{
+  "name": "ApiRest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
